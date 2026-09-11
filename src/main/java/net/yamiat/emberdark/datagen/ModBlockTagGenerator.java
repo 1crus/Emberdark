@@ -21,7 +21,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.COGNITIVE_GRASS.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ModBlocks.COGNITIVE_GRASS.get(),
-                ModBlocks.WORMYDIRTBLOCK.get());
+                ModBlocks.WORMYDIRTBLOCK.get(),
+                ModBlocks.DEATHANTNEST.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.COGNITIVE_GRASS.get());
 

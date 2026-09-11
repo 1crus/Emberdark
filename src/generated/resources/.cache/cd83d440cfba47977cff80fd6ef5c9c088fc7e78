@@ -1,8 +1,8 @@
-// 1.20.1	2026-09-10T16:15:46.5262933	Tags for minecraft:block mod id emberdark
+// 1.20.1	2026-09-11T14:47:57.9269369	Tags for minecraft:block mod id emberdark
 cb6a9a60b6f6ca093f12a34c9e2a1dec1bc7fd5c data/minecraft/tags/blocks/logs_that_burn.json
 c78923a81297bc150198e4375e0511cf17fd4b1b data/minecraft/tags/blocks/mineable/axe.json
 ddee3b37386750fe2749d30226313a4d6b90e2f6 data/minecraft/tags/blocks/mineable/hoe.json
 71e01243182d009bc5226889d301e1cde5a80678 data/minecraft/tags/blocks/mineable/pickaxe.json
-f8e7aa0093db40e2e6406d3acd1ef17d8931c0a1 data/minecraft/tags/blocks/mineable/shovel.json
+afa768cb5ce2daab1cd979b5b623d8cf8c492475 data/minecraft/tags/blocks/mineable/shovel.json
 71e01243182d009bc5226889d301e1cde5a80678 data/minecraft/tags/blocks/needs_diamond_tool.json
 9a87689040b7691bcd2d70b8c9ff457f5111aea7 data/minecraft/tags/blocks/planks.json

@@ -19,6 +19,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         simpleItem(ModItems.INVESTEDPASTE);
         simpleItem(ModItems.INVESTEDWORM);
+        simpleItem(ModItems.DEATHANTVENOM);
 
 
         withExistingParent(ModItems.SPAWNNIGHTMAW.getId().getPath(), mcLoc("item/template_spawn_egg"));

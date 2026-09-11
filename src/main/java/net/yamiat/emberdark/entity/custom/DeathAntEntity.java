@@ -4,6 +4,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -16,6 +18,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.yamiat.emberdark.entity.goals.CakobansLureGoal;
+import net.yamiat.emberdark.entity.goals.DeathantNestGoal;
 import org.jetbrains.annotations.Nullable;
 
 public class DeathAntEntity extends Animal {
@@ -71,6 +74,7 @@ public class DeathAntEntity extends Animal {
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(5, new CakobansLureGoal(this, 1.0D, 32,10));
+        this.goalSelector.addGoal(6, new DeathantNestGoal(this, 1.0D, 32,10));
         this.targetSelector.addGoal(2, new DeathAntEntity.DeathAntTargetGoal<>(this, Player.class));
         this.targetSelector.addGoal(3, new DeathAntEntity.DeathAntTargetGoal<>(this, IronGolem.class));
     }
@@ -139,6 +143,20 @@ public class DeathAntEntity extends Animal {
 
 
     }
+
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        // Let the default attack logic run first (deals damage)
+        boolean hasHurt = super.doHurtTarget(target);
+
+        if (hasHurt && target instanceof LivingEntity livingTarget) {
+            // Apply Poison effect: 100 ticks (5 seconds), amplifier 0 (Poison I)
+            livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 100, 2), this);
+        }
+
+        return hasHurt;
+    }
+
 
     @Override
     protected @Nullable SoundEvent getAmbientSound() {

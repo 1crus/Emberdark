@@ -1,3 +1,6 @@
 {
-  "parent": "emberdark:block/cutaway_vines"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "emberdark:item/cutaway_vines"
+  }
 }

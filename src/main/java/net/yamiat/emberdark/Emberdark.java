@@ -17,6 +17,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.yamiat.emberdark.block.ModBlocks;
+import net.yamiat.emberdark.block.entity.ModBlockEntities;
 import net.yamiat.emberdark.entity.ModEntities;
 import net.yamiat.emberdark.entity.client.NightmawRenderer;
 import net.yamiat.emberdark.item.ModCreativeModeTabs;
@@ -41,6 +42,7 @@ public class Emberdark
 
         ModEntities.register(modEventBus);
 
+        ModBlockEntities.register(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
 

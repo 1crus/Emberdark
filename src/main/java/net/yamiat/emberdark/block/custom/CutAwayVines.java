@@ -41,7 +41,7 @@ public class CutAwayVines extends Block {
             if (!livingEntity.hasEffect(MobEffects.CONFUSION)) {
 
                 // Apply Poison for 4 seconds (80 ticks) at amplifier 0 (Poison I)
-                livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 800, 9));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 9));
 
             }
         }

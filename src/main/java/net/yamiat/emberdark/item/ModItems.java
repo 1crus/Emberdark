@@ -16,7 +16,7 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static  final RegistryObject<Item> INVESTEDPASTE = ITEMS.register("invested_paste",
             () -> new Item(new Item.Properties().food(ModFoods.INVESTEDPASTE)));
-    public static  final RegistryObject<Item> VENOM_BOTTLE = ITEMS.register("venom_bottle",
+    public static  final RegistryObject<Item> DEATHANTVENOM = ITEMS.register("deathant_venom",
             () -> new Item(new Item.Properties()));
     public static  final RegistryObject<Item> SPAWNNIGHTMAW = ITEMS.register("nightmaw_spawner",
             () -> new ForgeSpawnEggItem(ModEntities.NIGHTMAW, 0x7e9680, 0x7e9680, new Item.Properties()));

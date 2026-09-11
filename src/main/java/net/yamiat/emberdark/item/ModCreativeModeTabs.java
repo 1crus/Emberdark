@@ -30,6 +30,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.CAKOBANS_FINGERS_LEAVES.get());
                         pOutput.accept(ModBlocks.CUTAWAY_VINES.get());
                         pOutput.accept(ModBlocks.DEATHANTNEST.get());
+                        pOutput.accept(ModItems.DEATHANTVENOM.get());
 
 
 

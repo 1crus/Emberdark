@@ -1,3 +1,6 @@
 {
-  "parent": "emberdark:block/cakobans_finger"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "emberdark:item/cakobans_finger"
+  }
 }

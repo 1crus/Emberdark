@@ -32,7 +32,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> WORMYDIRTBLOCK = registerBlock("wormy_dirt",
             () -> new WormyDirtBlock(BlockBehaviour.Properties.copy(Blocks.DIRT).randomTicks()));
     public static final RegistryObject<Block> DEATHANTNEST = registerBlock("deathant_nest",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
+            () -> new DeathAntNest(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).noOcclusion()));
 
     public static final RegistryObject<Block> CAKOBANS_FINGERS_LOG = registerBlock("cakobans_fingers_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3.0F)));

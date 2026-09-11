@@ -6,25 +6,37 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.yamiat.emberdark.block.entity.EntitySpawnerBlockEntity;
+import net.yamiat.emberdark.entity.ModEntities;
 import org.jetbrains.annotations.Nullable;
 
-public class DeathAntNest extends BaseEntityBlock {
+public class DeathAntNest extends Block implements EntityBlock {
     public DeathAntNest(Properties properties) {
         super(properties);
     }
 
-    // Add right-click interaction to check or release ants like a beehive
+    @Nullable
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        // Add custom logic here to inspect ants or retrieve items
-        return InteractionResult.SUCCESS;
+    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+        return new EntitySpawnerBlockEntity(pPos, pState);
     }
 
+    @Nullable
     @Override
-    public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return null;
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        // Ensure ticking only runs on the server side
+        return pLevel.isClientSide ? null : (level, pos, state, blockEntity) -> {
+            if (blockEntity instanceof EntitySpawnerBlockEntity spawner) {
+                spawner.tick(level, pos, state);
+            }
+        };
     }
 }

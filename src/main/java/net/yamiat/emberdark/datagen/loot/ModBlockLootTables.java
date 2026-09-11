@@ -34,6 +34,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.STRIPPED_CAKOBANS_FINGERS_LOG.get());
         this.dropSelf(ModBlocks.CAKOBANS_FINGER.get());
         this.dropSelf(ModBlocks.CUTAWAY_VINES.get());
+        this.dropSelf(ModBlocks.DEATHANTNEST.get());
+
 
         this.add(ModBlocks.CAKOBANS_FINGERS_LEAVES.get(),
                 block -> createLeavesDrops(block, ModBlocks.CAKOBANS_FINGERS_LEAVES.get(), NORMAL_LEAVES_SAPLING_CHANCES));
