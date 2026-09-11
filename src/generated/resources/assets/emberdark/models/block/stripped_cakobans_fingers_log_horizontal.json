@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "emberdark:block/stripped_cakobans_fingers_log_top",
+    "side": "emberdark:block/stripped_cakobans_fingers_log"
+  }
+}

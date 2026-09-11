@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "emberdark:cakobans_fingers_planks"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "emberdark:blocks/cakobans_fingers_planks"
+}

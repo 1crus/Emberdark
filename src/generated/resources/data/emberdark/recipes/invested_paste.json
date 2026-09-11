@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bowl"
+    },
+    "W": {
+      "item": "emberdark:invested_worm"
+    }
+  },
+  "pattern": [
+    " W ",
+    " B ",
+    "   "
+  ],
+  "result": {
+    "item": "emberdark:invested_paste"
+  },
+  "show_notification": true
+}

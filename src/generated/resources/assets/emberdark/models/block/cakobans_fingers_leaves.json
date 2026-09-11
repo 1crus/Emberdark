@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "emberdark:block/cakobans_fingers_leaves"
+  }
+}

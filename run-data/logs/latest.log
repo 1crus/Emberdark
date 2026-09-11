@@ -1,0 +1,29 @@
+[10Sep2026 16:15:40.008] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Dylan\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.23, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, emberdark, --all, --output, C:\Users\Dylan\Desktop\Emberdark\src\generated\resources, --existing, C:\Users\Dylan\Desktop\Emberdark\src\main\resources]
+[10Sep2026 16:15:40.024] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.20.1 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[10Sep2026 16:15:40.142] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[10Sep2026 16:15:40.196] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Dylan/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[10Sep2026 16:15:40.427] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Dylan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.23\103ee0ecf6e5e4a971ee1ae68384e96fd73b097f\javafmllanguage-1.20.1-47.4.23.jar is missing mods.toml file
+[10Sep2026 16:15:40.430] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Dylan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.23\2531b2da1460bc09c8ec3bf946e641de664b460d\lowcodelanguage-1.20.1-47.4.23.jar is missing mods.toml file
+[10Sep2026 16:15:40.434] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Dylan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.23\eebf4eae01f6fde63717bb38b77f9b6b1b50f8\mclanguage-1.20.1-47.4.23.jar is missing mods.toml file
+[10Sep2026 16:15:40.438] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Dylan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.23\ef56cfb608a4356c3f99dd6a4fa81ce33029bcde\fmlcore-1.20.1-47.4.23.jar is missing mods.toml file
+[10Sep2026 16:15:40.497] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[10Sep2026 16:15:41.740] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Dylan\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, emberdark, --all, --output, C:\Users\Dylan\Desktop\Emberdark\src\generated\resources, --existing, C:\Users\Dylan\Desktop\Emberdark\src\main\resources]
+[10Sep2026 16:15:42.157] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [emberdark]
+[10Sep2026 16:15:45.684] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.23, for MC 1.20.1 with MCP 20230612.114412
+[10Sep2026 16:15:45.686] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.23 Initialized
+[10Sep2026 16:15:46.113] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Dylan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.23_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.23_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[10Sep2026 16:15:46.114] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Dylan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.23_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.23_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[10Sep2026 16:15:46.309] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[10Sep2026 16:15:46.357] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 46 ms
+[10Sep2026 16:15:46.357] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[10Sep2026 16:15:46.399] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 42 ms
+[10Sep2026 16:15:46.399] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: emberdark
+[10Sep2026 16:15:46.508] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: emberdark finished after 107 ms
+[10Sep2026 16:15:46.508] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: emberdark
+[10Sep2026 16:15:46.511] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: emberdark finished after 2 ms
+[10Sep2026 16:15:46.511] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id emberdark
+[10Sep2026 16:15:46.521] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id emberdark finished after 10 ms
+[10Sep2026 16:15:46.521] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id emberdark
+[10Sep2026 16:15:46.523] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id emberdark finished after 1 ms
+[10Sep2026 16:15:46.523] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 214 ms
+[10Sep2026 16:15:46.532] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 46, old count: 41, new count: 47, removed stale: 0, written: 5

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "block/moss_block",
+    "up": "emberdark:block/deathant_nest",
+    "north": "block/moss_block",
+    "south": "block/moss_block",
+    "east": "block/moss_block",
+    "west": "block/moss_block",
+    "particle": "block/moss_block"
+  }
+}

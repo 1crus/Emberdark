@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "emberdark:block/stripped_cakobans_fingers_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "emberdark:block/stripped_cakobans_fingers_log"
+    },
+    "axis=z": {
+      "model": "emberdark:block/stripped_cakobans_fingers_log_horizontal",
+      "x": 90
+    }
+  }
+}
