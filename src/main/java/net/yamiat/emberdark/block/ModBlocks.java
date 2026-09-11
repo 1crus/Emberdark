@@ -5,13 +5,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -103,6 +101,21 @@ public class ModBlocks {
 
 
             });
+    // 1. The Head/Tip Block
+    public static final RegistryObject<Block> MEMISTVINESNUB = registerBlock("memist_vines_nub",
+            () -> new MemistVinesNub(Block.Properties.copy(Blocks.CAVE_VINES)
+                    .noCollission()
+                    .randomTicks()
+                    .sound(SoundType.CAVE_VINES)
+                    .pushReaction(PushReaction.DESTROY)));
+
+    // 2. The Body/Segment Block
+    public static final RegistryObject<Block> MEMISTVINES = registerBlock("memist_vines",
+            () -> new MemistVines(Block.Properties.copy(Blocks.CAVE_VINES_PLANT)
+                    .noCollission()
+                    .sound(SoundType.CAVE_VINES)
+                    .pushReaction(PushReaction.DESTROY)));
+
 
 
 
