@@ -34,6 +34,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.STINGINGTERRORVINESNUB.get());
                         pOutput.accept(ModBlocks.MEMISTVINESNUB.get());
                         pOutput.accept(ModBlocks.SWAMPVINESNUB.get());
+                        pOutput.accept(ModBlocks.JELLYWIRE.get());
 
 
 

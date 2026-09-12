@@ -4,6 +4,7 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -35,6 +36,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.CAKOBANS_FINGER.get());
         this.dropSelf(ModBlocks.CUTAWAY_VINES.get());
         this.dropSelf(ModBlocks.DEATHANTNEST.get());
+        this.dropSelf(ModBlocks.JELLYWIRE.get());
+        this.dropSelf(ModBlocks.MEMISTVINESNUB.get());
+        this.dropSelf(ModBlocks.STINGINGTERRORVINESNUB.get());
+        this.dropSelf(ModBlocks.SWAMPVINESNUB.get());
 
 
 
@@ -46,6 +51,17 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.WORMYDIRTBLOCK.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.WORMYDIRTBLOCK.get(), ModItems.INVESTEDWORM.get()));
 
+        this.add(ModBlocks.MEMISTVINES.get(),
+                block -> createCopperLikeOreBlocks(ModBlocks.MEMISTVINES.get(), ModBlocks.MEMISTVINESNUB.get()));
+        this.add(ModBlocks.SWAMPVINES.get(),
+                block -> createCopperLikeOreBlocks(ModBlocks.SWAMPVINES.get(), ModBlocks.SWAMPVINESNUB.get()));
+        this.add(ModBlocks.STINGINGTERRORVINES.get(),
+                block -> createCopperLikeOreBlocks(ModBlocks.STINGINGTERRORVINES.get(), ModBlocks.STINGINGTERRORVINESNUB.get()));
+
+
+
+
+
 
     }
 
@@ -54,6 +70,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 this.applyExplosionDecay(pBlock,
                         LootItem.lootTableItem(item)
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0F)))
+                                .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+    }
+
+    protected LootTable.Builder createCopperLikeOreBlocks(Block pBlock, Block block) {
+        return createSilkTouchDispatchTable(pBlock,
+                this.applyExplosionDecay(pBlock,
+                        LootItem.lootTableItem(block)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 1.0F)))
                                 .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
     }
 

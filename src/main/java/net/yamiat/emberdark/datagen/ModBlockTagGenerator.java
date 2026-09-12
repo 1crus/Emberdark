@@ -29,8 +29,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.CAKOBANS_FINGER.get());
 
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(ModBlocks.CUTAWAY_VINES.get(),
-        ModBlocks.MEMISTVINESNUB.get(),
-                ModBlocks.MEMISTVINES.get());
+                ModBlocks.JELLYWIRE.get());
 
         this.tag(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.STRIPPED_CAKOBANS_FINGERS_LOG.get())

@@ -1,4 +1,4 @@
-// 1.20.1	2026-09-11T14:47:57.9269369	Loot Tables
+// 1.20.1	2026-09-12T11:41:52.5323421	Loot Tables
 af2ed93bf4c47c6aadc3ec3a356c47d0e30a8cdd data/emberdark/loot_tables/blocks/cakobans_finger.json
 3cd628a18be02681ba7d4bab0f14ebb6c105c70d data/emberdark/loot_tables/blocks/cakobans_fingers_leaves.json
 6d8ca563eb9187bb59043913d378e216a69d0348 data/emberdark/loot_tables/blocks/cakobans_fingers_log.json
@@ -7,6 +7,13 @@ e4f5250c1dce54583a1f8e88b2728816b2605142 data/emberdark/loot_tables/blocks/cakob
 8b4cd3222f677b8f4ad930e5806f65ebd37f7ea0 data/emberdark/loot_tables/blocks/cognitive_grass.json
 54c83e6e4e3476bff25ec909508764265d144f22 data/emberdark/loot_tables/blocks/cutaway_vines.json
 7d73259e82ed868fb062d44a03e5565069c59e00 data/emberdark/loot_tables/blocks/deathant_nest.json
+7e37e76b8435ff547d129c7ea2de6ec8431cf87f data/emberdark/loot_tables/blocks/jellywire.json
+bded47d5414fd79e3b51da18ef71a279a69c7e47 data/emberdark/loot_tables/blocks/memist_vines.json
+c9ea64ddad910c8fb161d67262e86c1831b3888c data/emberdark/loot_tables/blocks/memist_vines_nub.json
+966f682d682ae7036cc9a2488018cc40a7e89680 data/emberdark/loot_tables/blocks/stinging_terror_vines.json
+4dc70e8f1be7a3f9f674ae4c95906b5414973ca4 data/emberdark/loot_tables/blocks/stinging_terror_vines_nub.json
 dd501fca22b72695f8236ad2fe53423c46426db3 data/emberdark/loot_tables/blocks/stripped_cakobans_fingers_log.json
 4d0a17d67d0a9aba475cc6c6557cea3be2695108 data/emberdark/loot_tables/blocks/stripped_cakobans_fingers_wood.json
+da131a3ef1dc6e8bab954d2cc8a79a779cede333 data/emberdark/loot_tables/blocks/swampvines.json
+cb1ed542ebb8f0913876de39aa8bda821612348f data/emberdark/loot_tables/blocks/swampvines_nub.json
 149afcc5f37619b408419bae9e1e4fdc3e3f5c4c data/emberdark/loot_tables/blocks/wormy_dirt.json

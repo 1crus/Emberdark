@@ -143,6 +143,12 @@ public class ModBlocks {
                     .noCollission()
                     .sound(SoundType.CAVE_VINES)
                     .pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> JELLYWIRE = registerBlock("jellywire",
+            () -> new JellyWire(Block.Properties.copy(Blocks.VINE)
+                    .noCollission()
+                    .randomTicks()
+                    .sound(SoundType.VINE)
+                    .pushReaction(PushReaction.DESTROY)));
 
 
 
