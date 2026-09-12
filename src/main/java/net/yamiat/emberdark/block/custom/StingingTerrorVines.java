@@ -31,6 +31,10 @@ public class StingingTerrorVines extends CaveVinesPlantBlock {
         return (GrowingPlantHeadBlock) ModBlocks.STINGINGTERRORVINESNUB.get();
     }
 
+    static boolean hasGlowBerries(BlockState pState) {
+        return false;
+    }
+
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         // Run code only on the server side and ensure the entity can take status effects

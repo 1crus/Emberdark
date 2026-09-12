@@ -56,6 +56,10 @@ public class MemistVinesNub extends CaveVinesBlock implements BonemealableBlock 
         level.setBlock(pos, changedState, 2);
     }
 
+    protected BlockState getGrowIntoState(BlockState p_220935_, RandomSource p_220936_) {
+        return super.getGrowIntoState(p_220935_, p_220936_).setValue(BERRIES, false);
+    }
+
     @Override
     public boolean canSurvive(BlockState state, net.minecraft.world.level.LevelReader level, BlockPos pos) {
         BlockPos blockAbovePos = pos.above();

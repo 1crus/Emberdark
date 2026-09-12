@@ -85,6 +85,10 @@ public class SwampvinesNub extends CaveVinesBlock implements BonemealableBlock {
         return ModBlocks.SWAMPVINES.get();
     }
 
+    static boolean hasGlowBerries(BlockState pState) {
+        return false;
+    }
+
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         // Run only on the server side to prevent desync

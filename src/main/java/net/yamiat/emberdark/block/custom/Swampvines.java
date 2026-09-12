@@ -34,6 +34,10 @@ public class Swampvines extends CaveVinesPlantBlock {
         return (GrowingPlantHeadBlock) ModBlocks.SWAMPVINESNUB.get();
     }
 
+    static boolean hasGlowBerries(BlockState pState) {
+        return false;
+    }
+
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         // Run only on the server side to prevent desync

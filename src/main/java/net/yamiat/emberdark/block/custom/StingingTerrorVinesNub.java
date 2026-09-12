@@ -39,6 +39,10 @@ public class StingingTerrorVinesNub extends CaveVinesBlock implements Bonemealab
         return true; // 100% success rate
     }
 
+    static boolean hasGlowBerries(BlockState pState) {
+        return false;
+    }
+
     // 3. Perform the actual growth and self-transformation
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {

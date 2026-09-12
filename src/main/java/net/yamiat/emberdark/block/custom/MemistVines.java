@@ -27,4 +27,8 @@ public class MemistVines extends CaveVinesPlantBlock {
         return (GrowingPlantHeadBlock) ModBlocks.MEMISTVINESNUB.get();
     }
 
+    static boolean hasGlowBerries(BlockState pState) {
+        return false;
+    }
+
 }
