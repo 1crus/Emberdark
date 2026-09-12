@@ -115,6 +115,36 @@ public class ModBlocks {
                     .noCollission()
                     .sound(SoundType.CAVE_VINES)
                     .pushReaction(PushReaction.DESTROY)));
+    // 1. The Head/Tip Block
+    public static final RegistryObject<Block> STINGINGTERRORVINESNUB = registerBlock("stinging_terror_vines_nub",
+            () -> new StingingTerrorVinesNub(Block.Properties.copy(Blocks.CAVE_VINES)
+                    .noCollission()
+                    .randomTicks()
+                    .sound(SoundType.CAVE_VINES)
+                    .pushReaction(PushReaction.DESTROY)));
+
+    // 2. The Body/Segment Block
+    public static final RegistryObject<Block> STINGINGTERRORVINES = registerBlock("stinging_terror_vines",
+            () -> new StingingTerrorVines(Block.Properties.copy(Blocks.CAVE_VINES_PLANT)
+                    .noCollission()
+                    .sound(SoundType.CAVE_VINES)
+                    .pushReaction(PushReaction.DESTROY)));
+    // 1. The Head/Tip Block
+    public static final RegistryObject<Block> SWAMPVINESNUB = registerBlock("swampvines_nub",
+            () -> new SwampvinesNub(Block.Properties.copy(Blocks.CAVE_VINES)
+                    .noCollission()
+                    .randomTicks()
+                    .sound(SoundType.CAVE_VINES)
+                    .pushReaction(PushReaction.DESTROY)));
+
+    // 2. The Body/Segment Block
+    public static final RegistryObject<Block> SWAMPVINES = registerBlock("swampvines",
+            () -> new Swampvines(Block.Properties.copy(Blocks.CAVE_VINES_PLANT)
+                    .noCollission()
+                    .sound(SoundType.CAVE_VINES)
+                    .pushReaction(PushReaction.DESTROY)));
+
+
 
 
 

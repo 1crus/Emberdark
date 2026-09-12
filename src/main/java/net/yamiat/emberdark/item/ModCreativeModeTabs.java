@@ -31,6 +31,10 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.CUTAWAY_VINES.get());
                         pOutput.accept(ModBlocks.DEATHANTNEST.get());
                         pOutput.accept(ModItems.DEATHANTVENOM.get());
+                        pOutput.accept(ModBlocks.STINGINGTERRORVINESNUB.get());
+                        pOutput.accept(ModBlocks.MEMISTVINESNUB.get());
+                        pOutput.accept(ModBlocks.SWAMPVINESNUB.get());
+
 
 
 
