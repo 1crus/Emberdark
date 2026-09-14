@@ -18,11 +18,13 @@ public class ModEventBusClientEvents {
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.NIGHTMAW_LAYER, NightmawModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.DEATHANT_LAYER, DeathAntModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.AVIAR_LAYER, AviarModel::createBodyLayer);
     }
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.NIGHTMAW.get(), NightmawRenderer::new);
         event.registerEntityRenderer(ModEntities.DEATHANT.get(), DeathAntRenderer::new);
+        event.registerEntityRenderer(ModEntities.AVIAR.get(), AviarRenderer::new);
     }
 
     @SubscribeEvent

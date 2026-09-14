@@ -9,4 +9,6 @@ public class ModModelLayers {
             new ResourceLocation(Emberdark.MODID, "nightmaw_layer"), "main");
     public static final ModelLayerLocation DEATHANT_LAYER = new ModelLayerLocation(
             new ResourceLocation(Emberdark.MODID, "deathant_layer"), "main");
+    public static final ModelLayerLocation AVIAR_LAYER = new ModelLayerLocation(
+            new ResourceLocation(Emberdark.MODID, "aviar_layer"), "main");
 }
