@@ -1,6 +1,7 @@
 package net.yamiat.emberdark.entity.custom;
 
 
+import leaf.cosmere.common.registry.AttributesRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -15,6 +16,10 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.yamiat.emberdark.entity.goals.CakobansLureGoal;
 import org.jetbrains.annotations.Nullable;
 
@@ -28,14 +33,14 @@ public class NightmawEntity extends Monster {
     public void tick() {
         super.tick();
 
-        if(this.level().isClientSide) {
+        if (this.level().isClientSide) {
             setupAnimationStates();
 
         }
     }
 
     private void setupAnimationStates() {
-        if(this.idleAnimationTimeout <= 0) {
+        if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.tickCount);
         } else {
@@ -49,7 +54,7 @@ public class NightmawEntity extends Monster {
     @Override
     protected void updateWalkAnimation(float pPartialTick) {
         float f;
-        if(this.getPose() == Pose.STANDING) {
+        if (this.getPose() == Pose.STANDING) {
             f = Math.min(pPartialTick * 6f, 1f);
         } else {
             f = 0f;
@@ -71,7 +76,7 @@ public class NightmawEntity extends Monster {
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.goalSelector.addGoal(5, new CakobansLureGoal(this, 1.0D, 32,10));
+        this.goalSelector.addGoal(5, new CakobansLureGoal(this, 1.0D, 32, 10));
         this.targetSelector.addGoal(2, new NightmawEntity.NightmawTargetGoal<>(this, Player.class));
         this.targetSelector.addGoal(3, new NightmawEntity.NightmawTargetGoal<>(this, IronGolem.class));
     }
@@ -95,7 +100,7 @@ public class NightmawEntity extends Monster {
         public boolean canContinueToUse() {
             float f = this.mob.getLightLevelDependentMagicValue();
             if (f >= 0.5F && this.mob.getRandom().nextInt(100) == 0) {
-                this.mob.setTarget((LivingEntity)null);
+                this.mob.setTarget((LivingEntity) null);
                 return false;
             } else {
                 return super.canContinueToUse();
@@ -103,7 +108,7 @@ public class NightmawEntity extends Monster {
         }
 
         protected double getAttackReachSqr(LivingEntity pAttackTarget) {
-            return (double)(4.0F + pAttackTarget.getBbWidth());
+            return (double) (4.0F + pAttackTarget.getBbWidth());
         }
     }
 
@@ -134,7 +139,7 @@ public class NightmawEntity extends Monster {
                 .add(Attributes.ARMOR_TOUGHNESS, 8.0f);
 
 
-}
+    }
 
     @Override
     protected @Nullable SoundEvent getAmbientSound() {
@@ -150,6 +155,38 @@ public class NightmawEntity extends Monster {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.CHICKEN_DEATH;
+    }
+
+
+    @Mod.EventBusSubscriber(modid = "emberdark", bus = Mod.EventBusSubscriber.Bus.FORGE)
+    public class MobIgnoreAttributeHandler {
+
+        @SubscribeEvent
+        public static void onTargetChange(LivingChangeTargetEvent event) {
+            LivingEntity newTarget = event.getNewTarget();
+            LivingEntity mob = event.getEntity();
+
+            // Check if the mob is trying to target a player
+            if (newTarget instanceof Player player && mob != null) {
+
+                // Check if the player possesses your custom attribute
+                double attrValue = player.getAttributeValue(AttributesRegistry.COGNITIVE_CONCEALMENT.get());
+
+                if (attrValue > 0.0D) {
+                    // Fetch the mob's maximum detection range (Vanilla default is usually 16-32 blocks)
+                    double maxFollowRange = mob.getAttributeValue(Attributes.FOLLOW_RANGE);
+                    double allowedDistance = maxFollowRange * 0.5D; // Cut it in half
+
+                    // Measure the actual distance between the mob and the player
+                    double distanceToPlayer = mob.distanceTo(player);
+
+                    // If the player is further away than half the view distance, force the mob to ignore them
+                    if (distanceToPlayer > allowedDistance) {
+                        event.setCanceled(true); // Cancels the target acquisition entirely
+                    }
+                }
+            }
+        }
     }
 }
 

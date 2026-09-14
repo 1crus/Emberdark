@@ -1,5 +1,6 @@
 package net.yamiat.emberdark.entity.custom;
 
+import leaf.cosmere.common.registry.AttributesRegistry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -17,6 +18,9 @@ import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.yamiat.emberdark.entity.goals.CakobansLureGoal;
 import net.yamiat.emberdark.entity.goals.DeathantNestGoal;
 import org.jetbrains.annotations.Nullable;
@@ -30,14 +34,14 @@ public class DeathAntEntity extends Animal {
     public void tick() {
         super.tick();
 
-        if(this.level().isClientSide) {
+        if (this.level().isClientSide) {
             setupAnimationStates();
 
         }
     }
 
     private void setupAnimationStates() {
-        if(this.idleAnimationTimeout <= 0) {
+        if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.tickCount);
         } else {
@@ -51,7 +55,7 @@ public class DeathAntEntity extends Animal {
     @Override
     protected void updateWalkAnimation(float pPartialTick) {
         float f;
-        if(this.getPose() == Pose.STANDING) {
+        if (this.getPose() == Pose.STANDING) {
             f = Math.min(pPartialTick * 6f, 1f);
         } else {
             f = 0f;
@@ -73,8 +77,8 @@ public class DeathAntEntity extends Animal {
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.goalSelector.addGoal(5, new CakobansLureGoal(this, 1.0D, 32,10));
-        this.goalSelector.addGoal(6, new DeathantNestGoal(this, 1.0D, 32,10));
+        this.goalSelector.addGoal(5, new CakobansLureGoal(this, 1.0D, 32, 10));
+        this.goalSelector.addGoal(6, new DeathantNestGoal(this, 1.0D, 32, 10));
         this.targetSelector.addGoal(2, new DeathAntEntity.DeathAntTargetGoal<>(this, Player.class));
         this.targetSelector.addGoal(3, new DeathAntEntity.DeathAntTargetGoal<>(this, IronGolem.class));
     }
@@ -103,7 +107,7 @@ public class DeathAntEntity extends Animal {
         public boolean canContinueToUse() {
             float f = this.mob.getLightLevelDependentMagicValue();
             if (f >= 0.5F && this.mob.getRandom().nextInt(100) == 0) {
-                this.mob.setTarget((LivingEntity)null);
+                this.mob.setTarget((LivingEntity) null);
                 return false;
             } else {
                 return super.canContinueToUse();
@@ -111,7 +115,7 @@ public class DeathAntEntity extends Animal {
         }
 
         protected double getAttackReachSqr(LivingEntity pAttackTarget) {
-            return (double)(4.0F + pAttackTarget.getBbWidth());
+            return (double) (4.0F + pAttackTarget.getBbWidth());
         }
     }
 
@@ -139,7 +143,6 @@ public class DeathAntEntity extends Animal {
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D)
                 .add(Attributes.ARMOR, 2.0f)
                 .add(Attributes.JUMP_STRENGTH, 1.0D);
-
 
 
     }
@@ -172,6 +175,26 @@ public class DeathAntEntity extends Animal {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.SILVERFISH_DEATH;
+    }
+
+
+    @Mod.EventBusSubscriber(modid = "emberdark", bus = Mod.EventBusSubscriber.Bus.FORGE)
+    public class MobIgnoreAttributeHandler {
+
+        @SubscribeEvent
+        public static void onTargetChange(LivingChangeTargetEvent event) {
+            LivingEntity newTarget = event.getNewTarget();
+
+            if (newTarget instanceof Player player) {
+                // Check if the player has your custom attribute instance and a specific value
+                double attrValue = player.getAttributeValue(AttributesRegistry.COGNITIVE_CONCEALMENT.get());
+
+                if (attrValue > 0.0D) { // Condition to ignore
+                    event.setCanceled(true); // Prevents the target from being set
+                    // Alternatively: event.getEntity().setTarget(null);
+                }
+            }
+        }
     }
 }
 

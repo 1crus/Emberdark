@@ -1,8 +1,31 @@
+import com.modrinth.minotaur.TaskModrinthUpload
+import com.modrinth.minotaur.dependencies.ModDependency
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+import net.darkhax.curseforgegradle.UploadArtifact
+import net.minecraftforge.gradle.common.util.RunConfig
+import net.minecraftforge.gradle.userdev.tasks.RenameJarInPlace
+
+buildscript {
+    repositories {
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public' }
+    }
+    dependencies {
+        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
+    }
+}
+
 plugins {
+    id 'org.ajoberstar.grgit.service' version '5.2.0'
+    id 'net.darkhax.curseforgegradle' version '1.1.16'
+    id "com.modrinth.minotaur" version "2.+"
+    id 'java'
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
@@ -60,6 +83,10 @@ minecraft {
     // These can be tweaked, removed, or duplicated as needed.
     runs {
         // applies to all the run configs below
+        //This fixes Mixin application problems from other mods because their refMaps are SRG-based, but we're in a MCP env
+        runConfig.property 'mixin.env.remapRefMap', 'true'
+        runConfig.property 'mixin.env.refMapRemappingFile', "run/build/createSrgToMcp/output.srg"
+
         configureEach {
             workingDirectory project.file('run')
 
@@ -121,6 +148,26 @@ repositories {
     // flatDir {
     //     dir 'libs'
     // }
+
+    maven {
+        //used for patchouli
+        url "https://maven.blamejared.com/"
+    }
+    maven {
+        //curio
+        url "https://maven.theillusivec4.top/"
+    }
+    maven {
+        //curios
+        url 'https://modmaven.dev/'
+    }
+    maven {
+        url "https://www.cursemaven.com/"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+
 }
 
 dependencies {
@@ -130,6 +177,7 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -145,6 +193,23 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+    // cosmere
+    implementation fg.deobf("curse.maven:cosmere-475343:8342760")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+
+    compileOnly fg.deobf("curse.maven:jade-api-324717:${jade_api_id}")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
+
+    //runtimeOnly fg.deobf("curse.maven:soulhome-574511:${soulhome_id}")
+
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
