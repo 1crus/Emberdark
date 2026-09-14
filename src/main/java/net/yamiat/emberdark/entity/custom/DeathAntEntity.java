@@ -107,8 +107,7 @@ public class DeathAntEntity extends Animal {
         public boolean canContinueToUse() {
             float f = this.mob.getLightLevelDependentMagicValue();
             if (f >= 0.5F && this.mob.getRandom().nextInt(100) == 0) {
-                this.mob.setTarget((LivingEntity) null);
-                return false;
+                return super.canContinueToUse();
             } else {
                 return super.canContinueToUse();
             }
@@ -130,7 +129,7 @@ public class DeathAntEntity extends Animal {
          */
         public boolean canUse() {
             float f = this.mob.getLightLevelDependentMagicValue();
-            return f >= 0.5F ? false : super.canUse();
+            return f >= 0.5F ? super.canUse() : super.canUse();
         }
     }
 
